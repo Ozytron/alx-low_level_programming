@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- *main() is the entry point into the program
+ *main - is the entry point into the program
  *
- *program returns 0 when sycessful
+ *Return: program returns 0 when sycessful
  */
 int main(void)
 {
