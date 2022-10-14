@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 /**
  *main - entry point of program
  *
@@ -6,12 +8,12 @@
  */
 int main(void)
 {
-	int letter;
+	char letter;
 
 	for (letter = 'a'; letter <= 'z'; letter++)
 	{
-	putchar(letter);
-	putchar('\n');
+		putchar(letter);
+		putchar('\n');
 	}
 
 	return (0);
