@@ -12,8 +12,8 @@ void print_alphabet(void)
 
 	for (count == 'a', count <= 'z', count++)
 	{
-		putchar(count);
+		_putchar(count);
 	}
-	putchar('\n');
+	_putchar('\n');
 	return (0);
 }
