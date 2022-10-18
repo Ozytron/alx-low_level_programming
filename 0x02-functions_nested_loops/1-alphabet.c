@@ -2,10 +2,8 @@
 #include <stdlib.h>
 #include "main.h"
 /**
-  *print_alphabet - this prints lowercase alphabets on screen
-  *
-  *Return: zero is returned on success
-  */
+ *print_alphabet - this prints lowercase alphabets on screen
+ */
 
 void print_alphabet(void)
 {
@@ -16,5 +14,4 @@ void print_alphabet(void)
 		_putchar(count);
 	}
 	_putchar('\n');
-	return;
 }
