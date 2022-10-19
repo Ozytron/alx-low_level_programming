@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#define UPPER_LIMIT 1000000000
 
 /**
   * main - entry point into program, prints the first 98 fibonacci numbers
@@ -8,25 +8,31 @@
   */
 int main(void)
 {
-	int n = 0;
-	unsigned long int a = 1, b = 2;
+	unsigned long int i = 0, a = 1, j = 0, b = 2;
+	unsigned long int cont1, cont2, cont3;
+	int n;
 
-	while (n < 98)
+	printf("%lu, %lu, ", a, b);
+	for (n = 2; n < 98; n++)
 	{
-		if (n == 0)
-			printf("%lu", a);
-		else if (n == 1)
-			printf(", %lu", b);
+		if (a + b > UPPER_LIMIT || j > 0 || i > 0)
+		{
+			cont1 = (a + b) / UPPER_LIMIT;
+			cont2 = (a + b) % UPPER_LIMIT;
+			cont3 = i + j + cont1;
+			i = j, j = cont3;
+			a = b, b = cont2;
+			printf("%lu%010lu", j, b);
+		}
 		else
 		{
-			b += a;
-			a = b - a;
-			printf(", %lu", b);
+			cont2 = a + b;
+			a = b, b = cont2;
+			printf("%lu", b);
 		}
-
-		++n;
+		if (n != 97)
+			printf(", ");
 	}
-
 	printf("\n");
 	return (0);
 }
