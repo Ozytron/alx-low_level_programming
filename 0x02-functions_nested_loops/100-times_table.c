@@ -17,8 +17,8 @@ void print_times_table(int n)
 	{
 		for (rowA = 0; rowA <= n; rowA++)
 		{
-
-			for (colA = 0; colA <= n; colA++)
+			printf("0,");
+			for (colA = 1; colA <= n; colA++)
 			{
 				digit = (rowA * colA);
 
@@ -28,10 +28,10 @@ void print_times_table(int n)
 					printf("  ");
 				else
 					printf(" ");
-
 				printf("%d", digit);
 				if (colA != n)
 					printf(",");
+
 			}
 			printf("\n");
 		}
