@@ -17,20 +17,21 @@ void print_times_table(int n)
 	{
 		for (rowA = 0; rowA <= n; rowA++)
 		{
-			printf("0, ");
 
-			for (colA = 1; colA <= n; colA++)
+			for (colA = 0; colA <= n; colA++)
 			{
 				digit = (rowA * colA);
-				if ((digit / 10) < 0)
-				{
+
+				if ((digit / 10) == 0)
+					printf("   ");
+				else if (((digit / 10) >= 1) && ((digit / 10) < 10))
+					printf("  ");
+				else
 					printf(" ");
-				}
+
 				printf("%d", digit);
-
 				if (colA != n)
-
-					printf(", ");
+					printf(",");
 			}
 			printf("\n");
 		}
