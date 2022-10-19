@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
+
 /**
  * main -  a function that prints sum of multiples of 3 or 5 below 1024
  *
@@ -13,7 +13,7 @@ int main(void)
 	while (i < 1024)
 	{
 		sum = 0;
-		if ((i % 3 == 0) || (i % 5 ==))
+		if ((i % 3 == 0) || (i % 5 == 0))
 			sum += i;
 		i++;
 	}
