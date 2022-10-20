@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * main - prints number from 1 to 100 but multiples of 3 and 5 are
- * replaced with FIZZ and BUZZ respectively.
+ * replaced with Fizz and Buzz respectively.
  *Return: return 0 when successful.
  */
 int main(void)
@@ -13,15 +13,15 @@ int main(void)
 	{
 		if ((i % 3) == 0 && (i % 5) == 0)
 		{
-			printf("%s", "FIZZBUZZ");
+			printf("%s", "FizzBuzz");
 		}
 		else if ((i % 3) == 0)
 		{
-			printf("%s", "FIZZ");
+			printf("%s", "Fizz");
 		}
 		else if ((i % 5) == 0)
 		{
-			printf("%s", "BUZZ");
+			printf("%s", "Buzz");
 		}
 		else
 		{
