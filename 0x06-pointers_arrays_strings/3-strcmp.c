@@ -9,29 +9,41 @@
 
 int _strcmp(char *s1, char *s2)
 {
-	int i = 0, j, status;
+	int i = 0, j = 0, k = 0, status = 0, b;
 
 	while (s1[i] != '\0')
 	{
 		i++;
 	}
-	j = 0;
 
 	while (s2[j] != '\0')
 	{
 		j++;
 	}
-	if (i > j)
+	if (i <= j)
 	{
-		status = 15;
-	}
-	else if (i < j)
-	{
-		status = -15;
+		b = i;
 	}
 	else
 	{
-		status = 0;
+		b = j;
 	}
+
+	while (k <= b)
+	{
+		if (s1[k] == s2[k])
+		{
+			k++;
+			continue;
+		}
+		else
+		{
+			status = s1[k] - s2[k];
+			break;
+		}
+
+		k++;
+	}
+
 	return (status);
 }
