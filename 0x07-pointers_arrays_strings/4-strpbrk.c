@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strpbrk- locates the first occurrence in the string s 
+ * _strpbrk- locates the first occurrence in the string s
  *           of any of the bytes in the string accept
  * @s: The string to be checked
  * @accept: The string to match from.
@@ -10,19 +10,21 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-	int i = 0, j;
+	int i = 0;
 
-	while (s[i] >= '\0')
+	while (*s)
 	{
-		for (j = 0; accept[j] >= '\0'; j++)
+		i = 0;
+		while (accept[i])
 		{
-			if (s[i] == accept[j])
+			if (*s == accept[i])
 			{
-				return (s + i);
+				return (s);
 			}
+			i++;
 		}
 
-		i++;
+		s++;
 	}
 	return ('\0');
 }
