@@ -2,19 +2,20 @@
 #include <stdio.h>
 
 /**
- * _puts_recursion - prints a string 
+ * _print_rev_recursion - prints reverse of string recursively.
  * @s: string to print
  */
 
-void _puts_recursion(char *s)
+void _print_rev_recursion(char *s)
 {
-	int i = 0;
-
-	while (s[i] != '\0')
+	if (*s == '\0')
 	{
-		_putchar(s[i]);
-		i++;
+		return;
 	}
 
-	_putchar('\n');
+	s++;
+	_print_rev_recursion(s);
+	s--;
+
+	_putchar(*s);
 }
