@@ -20,8 +20,10 @@ int _strlen_recursion(char *s)
 }
 
 /**
- * is_palindrome - checks if a string is a palindrome.
- * @s: string to check.
+ * palindrome_function - checks if a string is a palindrome.
+ * @s: string to check
+ * @length: length of string
+ * @i: index of string..
  * Return: 1 if palindrome and otherwise 0.
  */
 
