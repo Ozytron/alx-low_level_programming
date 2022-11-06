@@ -9,19 +9,18 @@
 
 int main(int argc, char *argv[])
 {
-	int first_num, second_num, multiple = 1;
+	int first_num, second_num, result = 1;
 
 	if (argc != 3)
 	{
 		printf("Error");
 		return (1);
 	}
-	else
-	{
-		first_num = atoi(argv[1]);
-		second_num = atoi(argv[2]);
-		multiple = first_num * second_num;
-		printf("%d\n", multiple);
-	}
+
+	first_num = atoi(argv[1]);
+	second_num = atoi(argv[2]);
+	result = first_num * second_num;
+	printf("%d\n", result);
+
 	return (0);
 }
