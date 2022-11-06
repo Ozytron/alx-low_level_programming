@@ -3,7 +3,8 @@
 /**
   * main - multiplies two arguments.
   * @argc: The argument counter.
-  * @argv: An array of pointer to the arguments.
+  * @argv: An array of pointer to the arguments
+  * Return: 1 if argument is < 2, otherwise 0..
   */
 
 int main(int argc, char *argv[])
@@ -22,6 +23,6 @@ int main(int argc, char *argv[])
 			multiple *=  atoi(argv[i]);
 		}
 		printf("%d\n", multiple);
-		return (0);
 	}
+	return (0);
 }
