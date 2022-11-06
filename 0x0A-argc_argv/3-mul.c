@@ -9,18 +9,21 @@
 
 int main(int argc, char *argv[])
 {
-	int first_num, second_num, result = 1;
+	int i, result = 1;
 
 	if (argc != 3)
 	{
-		printf("Error");
+		printf("Error\n");
 		return (1);
 	}
-
-	first_num = atoi(argv[1]);
-	second_num = atoi(argv[2]);
-	result = first_num * second_num;
-	printf("%d\n", result);
+	else
+	{
+		for (i = 1; i < argc; i++)
+		{
+			result *= atoi(argv[i]);
+		}
+		printf("%d\n", result);
+	}
 
 	return (0);
 }
