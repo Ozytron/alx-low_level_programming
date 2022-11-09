@@ -49,9 +49,9 @@ char **strtow(char *str)
 		{
 			if (str[ch] == ' ')
 				space++;
+			words[new_word] = malloc(sizeof(char) * (ch + space + 1));
 			if (str[ch] != ' ' && (str[ch + 1] == ' ' || str[ch + 1] == '\0'))
 			{
-				words[new_word] = malloc(sizeof(char) * (ch - space + 1));
 				if (words[new_word] == NULL)
 				{
 					_free_grid(words, new_word);
@@ -60,8 +60,10 @@ char **strtow(char *str)
 				break;
 			}
 		}
-		for (word_string = 0; space <= ch; space++, word_string++)
-			words[new_word][word_string] = str[space];
+		for (word_string = 0; space <= ch; word_string++)
+		{
+			words[new_word][word_string] = str[space++];
+		}
 		words[new_word][word_string] = '\0';
 	}
 	words[new_word] = NULL;
