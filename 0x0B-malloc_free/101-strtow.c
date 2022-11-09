@@ -39,7 +39,6 @@ char **strtow(char *str)
 
 	if (words == NULL || word_count == 0)
 	{
-		free(words);
 		return (NULL);
 	}
 	for (new_word = space = 0; new_word < word_count; new_word++)
