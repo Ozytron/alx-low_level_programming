@@ -64,6 +64,6 @@ char **strtow(char *str)
 			words[new_word][word_string] = str[space];
 		words[new_word][word_string] = '\0';
 	}
-	words[new_word] = '\0';
+	words[new_word] = NULL;
 	return (words);
 }
