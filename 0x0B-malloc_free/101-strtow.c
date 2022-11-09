@@ -47,7 +47,7 @@ char **strtow(char *str)
 		{
 			if (str[ch] == ' ')
 				space++;
-			words[new_word] = malloc(sizeof(char) * (ch - space + 2));
+			words[new_word] = malloc(sizeof(char) * (ch + 1));
 			if (str[ch] != ' ' && (str[ch + 1] == ' ' || str[ch + 1] == '\0'))
 			{
 				if (words[new_word] == NULL)
