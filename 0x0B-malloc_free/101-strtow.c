@@ -10,12 +10,9 @@
 
 void _free_grid(char **grid, int height)
 {
-	if (grid != NULL && height != 0)
-	{
-		for (; height > 0; height--)
-			free(grid[height]);
-		free(grid);
-	}
+	for (; height > 0; height--)
+		free(grid[height]);
+	free(grid);
 }
 
 /**
@@ -47,7 +44,7 @@ char **strtow(char *str)
 		{
 			if (str[ch] == ' ')
 				space++;
-			words[new_word] = malloc(sizeof(char) * (ch - space + 1) + 11);
+			words[new_word] = malloc(sizeof(char) * (ch - space + 1));
 			if (str[ch] != ' ' && (str[ch + 1] == ' ' || str[ch + 1] == '\0'))
 			{
 				if (words[new_word] == NULL)
