@@ -36,7 +36,7 @@ char **strtow(char *str)
 	for (ch = word_count = 0; str[ch] != '\0'; ch++)
 		if (str[ch] != ' ' && (str[ch + 1] == ' ' || str[ch + 1] == '\0'))
 			word_count++;
-	words = malloc(sizeof(char) * (word_count + 1));
+	words = malloc(sizeof(char) * (word_count));
 
 	if (words == NULL || word_count == 0)
 	{
