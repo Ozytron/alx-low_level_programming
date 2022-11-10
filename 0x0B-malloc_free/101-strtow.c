@@ -38,10 +38,10 @@ char **strtow(char *str)
 		return (NULL);
 	for (new_word = space = 0; new_word < word_count; new_word++)
 	{
+		for (i = 0; str[i] != ' ' && str[i] != '\0'; i++)
+			length++;
 		for (ch = space; str[ch] != '\0'; ch++)
 		{
-			for (i = 0; str[i] != ' ' && str[i] != '\0'; i++)
-				length++;
 			if (str[ch] == ' ')
 				space++;
 			words[new_word] = malloc(sizeof(char) * (length + 1));
