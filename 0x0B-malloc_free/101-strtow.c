@@ -3,64 +3,85 @@
 #include <stdlib.h>
 
 /**
- * _free_grid - frees a 2 dimensional grid.
- * @grid: the address of the two dimensional grid
- * @height: height of the grid
+ * number - function to calculate number of words
+ * @str: string being passed to check for words
+ *
+ * Return: number of words
  */
-
-void _free_grid(char **grid, int height)
+int number(char *str)
 {
-	for (; height > 0; height--)
-		free(grid[height]);
-	free(grid);
+	int a, num = 0;
+
+	for (a = 0; str[a] != '\0'; a++)
+	{
+		if (*str == ' ')
+			str++;
+		else
+		{
+			for (; str[a] != ' ' && str[a] != '\0'; a++)
+				str++;
+			num++;
+		}
+	}
+	return (num);
+}
+/**
+ * free_everything - frees the memory
+ * @string: pointer values being passed for freeing
+ * @i: counter
+ */
+void free_everything(char **string, int i)
+{
+	for (; i > 0;)
+		free(string[--i]);
+	free(string);
 }
 
 /**
- * strtow - splits a string into words
- * @str: The string to split.
- * Return: NULL if str == NULL or str == "" or wwhen funtion fails.
- *         Otherwise, returns a pointer to an array of strings (words)
+ * strtow - function that splits string into words
+ * @str: string being passed
+ * Return: null if string is empty or null or function fails
  */
-
 char **strtow(char *str)
 {
-	char **words;
-	int word_count, new_word, ch, word_string, space;
+	int total_words = 0, b = 0, c = 0, length = 0;
+	char **words, *found_word;
 
-	if (*str == '\0' || str == NULL)
+	if (str == 0 || *str == 0)
 		return (NULL);
-	for (ch = word_count = 0; str[ch] != '\0'; ch++)
-		if (str[ch] != ' ' && (str[ch + 1] == ' ' || str[ch + 1] == '\0'))
-			word_count++;
-	words = malloc(sizeof(char) * (word_count + 1));
-
-	if (words == NULL || word_count == 0)
-	{
+	total_words = number(str);
+	if (total_words == 0)
 		return (NULL);
-	}
-	for (new_word = space = 0; new_word < word_count; new_word++)
+	words = malloc((total_words + 1) * sizeof(char *));
+	if (words == 0)
+		return (NULL);
+	for (; *str != '\0' &&  b < total_words;)
 	{
-		for (ch = space; str[ch] != '\0'; ch++)
+		if (*str == ' ')
+			str++;
+		else
 		{
-			if (str[ch] == ' ')
-				space++;
-			words[new_word] = malloc(sizeof(char) * (ch - space + 1));
-			if (str[ch] != ' ' && (str[ch + 1] == ' ' || str[ch + 1] == '\0'))
+			found_word = str;
+			for (; *str != ' ' && *str != '\0';)
 			{
-				if (words[new_word] == NULL)
-				{
-					_free_grid(words, new_word);
-					return (NULL);
-				}
-				break;
+				length++;
+				str++;
 			}
+			words[b] = malloc((length + 1) * sizeof(char));
+			if (words[b] == 0)
+			{
+				free_everything(words, b);
+				return (NULL);
+			}
+			while (*found_word != ' ' && *found_word != '\0')
+			{
+				words[b][c] = *found_word;
+				found_word++;
+				c++;
+			}
+			words[b][c] = '\0';
+			b++; c = 0; length = 0; str++;
 		}
-		for (word_string = 0; space <= ch; word_string++)
-		{
-			words[new_word][word_string] = str[space++];
-		}
-		words[new_word][word_string] = '\0';
 	}
-	words[new_word] = NULL;
 	return (words);
 }
