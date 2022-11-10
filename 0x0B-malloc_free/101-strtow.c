@@ -61,6 +61,7 @@ char **strtow(char *str)
 		}
 		words[new_word][word_string] = '\0';
 		word_string = 0;
+		ch = 0;
 	}
 	words[new_word] = NULL;
 	return (words);
