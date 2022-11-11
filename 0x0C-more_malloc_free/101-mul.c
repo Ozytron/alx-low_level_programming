@@ -98,14 +98,14 @@ int main(int argc, char **argv)
 
 	if (argc < 3)
 	{
-		print_string("Error");
+		print_string("Error\n");
 		exit(98);
 	}
 	n1 = argv[1];
 	n2 = argv[2];
 	if (!(check_num(n1) && check_num(n2)))
 	{
-		print_string("Error");
+		print_string("Error\n");
 		exit(98);
 	}
 	len_1 = _strlen(n1);
@@ -114,7 +114,7 @@ int main(int argc, char **argv)
 	product = _calloc(l + 1, sizeof(char *));
 	if (product == 0)
 	{
-		print_string("Error");
+		print_string("Error\n");
 		exit(98);
 	}
 	for (a = 0; a < len_1; a++, ten++)
@@ -131,6 +131,7 @@ int main(int argc, char **argv)
 		product[l - b - ten - 1] += c + '0';
 	}
 	print_string(product);
+	print_string("\n");
 	free(product);
 	return (0);
 }
