@@ -8,6 +8,6 @@
  * @x: parameter.
  */
 
-#define ABS(x) ((x) < 0 ? (-x) : (x))
+#define ABS(x) ((x) < 0 ? ((x) * -1) : ((x) * 1))
 
 #endif /* FUNCTION_LIKE_MICRO_H */
