@@ -113,7 +113,7 @@ int main(int argc, char **argv)
 	len_2 = _strlen(num2);
 	l = len_1 + len_2;
 	mul = _calloc(l + 1, sizeof(char *));
-	if (mul == 0)
+	if (mul == NULL)
 	{
 		exit_code();
 	}
