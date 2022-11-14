@@ -5,32 +5,30 @@
 /**
  * check_num - function to check the string for number
  * @str: string being passed
- * @key: switches mode.
  * Return: 1 for number 0 for not
  */
-unsigned int check_num(char *str, unsigned int key)
+int check_num(char *str)
 {
-	unsigned int a, len = 0;
+	int a;
 
-	if (key == 1) /* checks if number */
+	for (a = 0; str[a] != '\0'; a++)
 	{
-		for (a = 0; str[a] != '\0'; a++)
-		{
-			if (str[a] < '0' || str[a] > '9')
-				return (0);
-		}
-	}
-	if (key == 2)  /* calculates string length */
-	{
-		for (; *str != '\0'; str++)
-		{
-			len++;
-		}
-		return (len);
+		if (str[a] < '0' || str[a] > '9')
+			return (0);
 	}
 	return (1);
 }
 
+unsigned int _strlen(char *s)
+{
+	unsigned int len = 0;
+
+	for (; *s != '\0'; s++)
+	{
+		len++;
+	}
+	return (len);
+}
 
 /**
  * print_string - function to print string
@@ -107,12 +105,12 @@ int main(int argc, char **argv)
 	}
 	n1 = argv[1];
 	n2 = argv[2];
-	if (!(check_num(n1, 1) && check_num(n2, 1)))
+	if (!(check_num(n1) && check_num(n2)))
 	{
 		exit_code();
 	}
-	len_1 = check_num(n1, 2);
-	len_2 = check_num(n2, 2);
+	len_1 = _strlen(n1);
+	len_2 = _strlen(n2);
 	l = len_1 + len_2;
 	product = _calloc(l + 1, sizeof(char *));
 	if (product == 0)
