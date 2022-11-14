@@ -4,56 +4,51 @@
 
 /**
  * check_num - function to check the string for number
- * @st: string being passed
+ * @str: string being passed
+ * @key: switches mode.
  * Return: 1 for number 0 for not
  */
-int check_num(char *st)
+unsigned int check_num(char *str, unsigned int key)
 {
-	int a;
+	unsigned int a, len = 0;
 
-	for (a = 0; st[a] != '\0'; a++)
+	if (key == 1) /* checks if number */
 	{
-		if (st[a] < '0' || st[a] > '9')
-			return (0);
+		for (a = 0; str[a] != '\0'; a++)
+		{
+			if (str[a] < '0' || str[a] > '9')
+				return (0);
+		}
+	}
+	if (key == 2)  /* calculates string length */
+	{
+		for (; *str != '\0'; str++)
+		{
+			len++;
+		}
+		return (len);
 	}
 	return (1);
-}
-
-/**
- * _strlen - a function that calculates the length of string
- *@s: string input
- * Return: Always len on success.
- */
-
-unsigned int _strlen(char *s)
-{
-	unsigned int len = 0;
-
-	for (; *s != '\0'; s++)
-	{
-		len++;
-	}
-	return (len);
 }
 
 
 /**
  * print_string - function to print string
- * @st: string to print
+ * @str: string to print
  * Return: none
  */
-void print_string(char *st)
+void print_string(char *str)
 {
-	while (*st == '\0')
-		st++;
-	if (*st == '\0')
+	while (*str == '\0')
+		str++;
+	if (*str == '\0')
 		_putchar('0');
-	while (*st == '0')
-		st++;
-	while (*st != '\0')
+	while (*str == '0')
+		str++;
+	while (*str != '\0')
 	{
-		_putchar(*st);
-		st++;
+		_putchar(*str);
+		str++;
 	}
 	_putchar('\n');
 }
@@ -84,6 +79,16 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	return (hold);
 }
+/**
+ * exit_code - exit message and status.
+ */
+
+void exit_code(void)
+{
+	print_string("Error");
+	exit(98);
+}
+
 
 /**
  * main - function to multiply
@@ -98,24 +103,21 @@ int main(int argc, char **argv)
 
 	if (argc < 3)
 	{
-		print_string("Error\n");
-		exit(98);
+		exit_code();
 	}
 	n1 = argv[1];
 	n2 = argv[2];
-	if (!(check_num(n1) && check_num(n2)))
+	if (!(check_num(n1, 1) && check_num(n2, 1)))
 	{
-		print_string("Error\n");
-		exit(98);
+		exit_code();
 	}
-	len_1 = _strlen(n1);
-	len_2 = _strlen(n2);
+	len_1 = check_num(n1, 2);
+	len_2 = check_num(n2, 2);
 	l = len_1 + len_2;
 	product = _calloc(l + 1, sizeof(char *));
 	if (product == 0)
 	{
-		print_string("Error\n");
-		exit(98);
+		exit_code();
 	}
 	for (a = 0; a < len_1; a++, ten++)
 	{
@@ -131,7 +133,6 @@ int main(int argc, char **argv)
 		product[l - b - ten - 1] += c + '0';
 	}
 	print_string(product);
-	print_string("\n");
 	free(product);
 	return (0);
 }
