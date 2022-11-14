@@ -96,21 +96,21 @@ void exit_code(void)
  */
 int main(int argc, char **argv)
 {
-	char *n1, *n2, *product;
+	char *num1, *num2, *product;
 	unsigned int l = 0, len_1 = 0, len_2 = 0, a, b, t = 0, c = 0, ten = 0;
 
 	if (argc < 3)
 	{
 		exit_code();
 	}
-	n1 = argv[1];
-	n2 = argv[2];
-	if (!(check_num(n1) && check_num(n2)))
+	num1 = argv[1];
+	num2 = argv[2];
+	if (!(check_num(num1) && check_num(num2)))
 	{
 		exit_code();
 	}
-	len_1 = _strlen(n1);
-	len_2 = _strlen(n2);
+	len_1 = _strlen(num1);
+	len_2 = _strlen(num2);
 	l = len_1 + len_2;
 	product = _calloc(l + 1, sizeof(char *));
 	if (product == 0)
@@ -121,7 +121,7 @@ int main(int argc, char **argv)
 	{
 		for (c = 0, b = 0; b < len_2; b++)
 		{
-			t = (n1[len_1 - a - 1] - '0') * (n2[len_2 - b - 1] - '0') + c;
+			t = (num1[len_1 - a - 1] - '0') * (num2[len_2 - b - 1] - '0') + c;
 
 			if (product[l - b - ten - 1] > 0)
 				t = t + product[l - b - ten - 1] - '0';
