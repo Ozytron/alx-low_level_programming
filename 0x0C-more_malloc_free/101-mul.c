@@ -96,7 +96,7 @@ void exit_code(void)
  */
 int main(int argc, char **argv)
 {
-	char *num1, *num2, *product;
+	char *num1, *num2, *mul;
 	unsigned int l = 0, len_1 = 0, len_2 = 0, a, b, t = 0, c = 0, ten = 0;
 
 	if (argc < 3)
@@ -112,8 +112,8 @@ int main(int argc, char **argv)
 	len_1 = _strlen(num1);
 	len_2 = _strlen(num2);
 	l = len_1 + len_2;
-	product = _calloc(l + 1, sizeof(char *));
-	if (product == 0)
+	mul = _calloc(l + 1, sizeof(char *));
+	if (mul == 0)
 	{
 		exit_code();
 	}
@@ -123,15 +123,15 @@ int main(int argc, char **argv)
 		{
 			t = (num1[len_1 - a - 1] - '0') * (num2[len_2 - b - 1] - '0') + c;
 
-			if (product[l - b - ten - 1] > 0)
-				t = t + product[l - b - ten - 1] - '0';
-			product[l - b - ten - 1] = t % 10 + '0';
+			if (mul[l - b - ten - 1] > 0)
+				t = t + mul[l - b - ten - 1] - '0';
+			mul[l - b - ten - 1] = t % 10 + '0';
 			c = t / 10;
 		}
-		product[l - b - ten - 1] += c + '0';
+		mul[l - b - ten - 1] += c + '0';
 	}
-	print_string(product);
+	print_string(mul);
 	_putchar('\n');
-	free(product);
+	free(mul);
 	return (0);
 }
