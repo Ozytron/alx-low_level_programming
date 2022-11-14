@@ -50,7 +50,6 @@ void print_string(char *str)
 		_putchar(*str);
 		str++;
 	}
-	_putchar('\n');
 }
 
 /**
@@ -86,6 +85,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 void exit_code(void)
 {
 	print_string("Error");
+	_putchar('\n');
 	exit(98);
 }
 
@@ -133,6 +133,7 @@ int main(int argc, char **argv)
 		product[l - b - ten - 1] += c + '0';
 	}
 	print_string(product);
+	_putchar('\n');
 	free(product);
 	return (0);
 }
