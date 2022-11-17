@@ -1,22 +1,9 @@
 #include "variadic_functions.h"
 #include <stdio.h>
 #include <stdarg.h>
-/**
- * struct fmt_printer - A new struct type defining a fmt_printer.
- * @id: A char representing a data type.
- * @print: A function pointer to a function that prints
- *         a data type corresponding to symbol.
- */
-
-typedef struct fmt_printer
-{
-	char *id;
-	void (*print)(va_list arg);
-}print_fmt;
-
 
 /**
- * print_char - Prints a char.
+ * char_printer - Prints a char.
  * @arg: A list of arguments pointing to
  *       the character to be printed.
  */
@@ -29,7 +16,7 @@ void char_printer(va_list arg)
 }
 
 /**
- * print_int - Prints an int.
+ * int_printer - Prints an int.
  * @arg: A list of arguments pointing to
  *       the integer to be printed.
  */
@@ -42,7 +29,7 @@ void int_printer(va_list arg)
 }
 
 /**
- * print_float - Prints a float.
+ * float_printer - Prints a float.
  * @arg: A list of arguments pointing to
  *       the float to be printed.
  */
@@ -55,7 +42,7 @@ void float_printer(va_list arg)
 }
 
 /**
- * print_string - Prints a string.
+ * string_printer - Prints a string.
  * @arg: A list of arguments pointing to
  *       the string to be printed.
  */
@@ -110,7 +97,7 @@ void print_all(const char * const format, ...)
 
 		i++;
 	}
-	
+
 	va_end(args);
 	printf("\n");
 }
