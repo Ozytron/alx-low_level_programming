@@ -1,5 +1,6 @@
 #ifndef VARIADIC_FUNCTION_H
 #define VARIADIC_FUNCTION_H
+#include <stdarg.h>
 
 /**
  * struct fmt_printer - A new struct type defining a fmt_printer.
