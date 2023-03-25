@@ -14,16 +14,16 @@ def island_perimeter(grid):
     for row in range(len(grid)):
         for col in range(len(grid[row])):
             if grid[row][col] == 1:
-                #check cell up
+                """check cell up"""
                 if row == 0 or grid[row - 1][col] == 0:
                     perimeter += 1
-                #check cell below
+                """check cell below"""
                 if row == len(grid) - 1 or grid[row + 1][col] == 0:
                     perimeter += 1
-                #check cell left
+                """check cell left"""
                 if col == 0 or grid[row][col - 1] == 0:
                     perimeter += 1
-                #check cell right
+                """check cell right"""
                 if col == len(grid[row]) - 1 or grid[row][col + 1] == 0:
                     perimeter += 1
     return (perimeter)

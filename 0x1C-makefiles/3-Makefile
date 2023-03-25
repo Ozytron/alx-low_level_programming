@@ -15,4 +15,3 @@ oclean:
 clean :
 	$(RM) *~ $(NAME)
 re: oclean all
-
